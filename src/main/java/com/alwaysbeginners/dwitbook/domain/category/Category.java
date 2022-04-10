@@ -31,8 +31,8 @@ public class Category extends BaseEntity {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @OneToMany(mappedBy = "category", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
-    private final List<Book> books = new ArrayList<>();
+//    @OneToMany(mappedBy = "category", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+//    private final List<Book> books = new ArrayList<>();
 
     @Builder
     public Category(String name) {

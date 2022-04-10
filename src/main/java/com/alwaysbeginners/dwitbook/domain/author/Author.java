@@ -31,8 +31,8 @@ public class Author extends BaseEntity {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @OneToMany(mappedBy = "author", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
-    private final List<Book> books = new ArrayList<>();
+//    @OneToMany(mappedBy = "author", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+//    private final List<Book> books = new ArrayList<>();
 
     @Builder
     public Author(String name) {
