@@ -11,4 +11,9 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 
     List<Book> findTop10ByTitleContainsOrderByPublishedDateAsc(String title);
 
+    List<Book> findTop10ByAuthor_NameEqualsOrderByPublishedDateDesc(String authorName);
+
+//    TODO : 테스트 코드 작성
+//    List<Book> findTop10ByCategory_NameEqualsOrderByPublishedDateDesc(String categoryName);
+
 }
