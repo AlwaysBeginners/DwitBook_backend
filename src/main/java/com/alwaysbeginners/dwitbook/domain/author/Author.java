@@ -23,14 +23,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Author extends BaseEntity {
 
-    @OneToMany(mappedBy = "author", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
-    private final List<BookAuthor> books = new ArrayList<>();
     @Id
     @GeneratedValue
     @Column(name = "author_id")
     private Long id;
+
     @Column(name = "name", nullable = false)
     private String name;
+
+    @OneToMany(mappedBy = "author", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    private final List<BookAuthor> books = new ArrayList<>();
 
     @Builder
     public Author(String name) {

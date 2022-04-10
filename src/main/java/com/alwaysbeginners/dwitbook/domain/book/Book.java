@@ -24,12 +24,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Book extends BaseEntity {
 
-    @OneToMany(mappedBy = "book", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
-    private final List<Review> reviews = new ArrayList<>();
-    @OneToMany(mappedBy = "book", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
-    private final List<BookThumbnail> thumbnailImages = new ArrayList<>();
-    @OneToMany(mappedBy = "book", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
-    private final List<BookAuthor> authors = new ArrayList<>();
     @Id
     @GeneratedValue
     @Column(name = "book_id")
@@ -46,6 +40,15 @@ public class Book extends BaseEntity {
     private LocalDate publishedDate;
 
     // TODO : 카테고리 정보 포함시켜야 함.
+
+    @OneToMany(mappedBy = "book", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    private final List<Review> reviews = new ArrayList<>();
+
+    @OneToMany(mappedBy = "book", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    private final List<BookThumbnail> thumbnailImages = new ArrayList<>();
+
+    @OneToMany(mappedBy = "book", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    private final List<BookAuthor> authors = new ArrayList<>();
 
     @Builder
     public Book(String ISBN, String title, String description, LocalDate publishedDate) {
