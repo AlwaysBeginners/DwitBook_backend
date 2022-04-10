@@ -1,7 +1,7 @@
 package com.alwaysbeginners.dwitbook.domain.author;
 
 import com.alwaysbeginners.dwitbook.domain.BaseEntity;
-import com.alwaysbeginners.dwitbook.domain.book.BookAuthor;
+import com.alwaysbeginners.dwitbook.domain.book.Book;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -32,7 +32,7 @@ public class Author extends BaseEntity {
     private String name;
 
     @OneToMany(mappedBy = "author", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
-    private final List<BookAuthor> books = new ArrayList<>();
+    private final List<Book> books = new ArrayList<>();
 
     @Builder
     public Author(String name) {
