@@ -3,6 +3,7 @@ package com.alwaysbeginners.dwitbook.domain.book;
 import com.alwaysbeginners.dwitbook.domain.BaseEntity;
 import com.alwaysbeginners.dwitbook.domain.author.Author;
 import com.alwaysbeginners.dwitbook.domain.category.Category;
+import com.alwaysbeginners.dwitbook.domain.publisher.Publisher;
 import com.alwaysbeginners.dwitbook.domain.review.Review;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -33,7 +34,6 @@ public class Book extends BaseEntity {
     @Column(name = "book_id")
     private Long id;
 
-    // TODO : 출판사 정보 포함시켜야 함.
     @Column(name = "isbn", nullable = false)
     private String ISBN;
 
@@ -42,6 +42,10 @@ public class Book extends BaseEntity {
 
     @Column(name = "description")
     private String description;
+
+    @ManyToOne
+    @JoinColumn(name = "publisher_id")
+    private Publisher publisher;
 
     @Column(name = "published_date")
     private LocalDate publishedDate;
@@ -64,13 +68,14 @@ public class Book extends BaseEntity {
 
     @Builder
     public Book(String ISBN, String title, String description, LocalDate publishedDate,
-        Author author, Category category) {
+        Author author, Category category, Publisher publisher) {
         this.ISBN = ISBN;
         this.title = title;
         this.description = description;
         this.publishedDate = publishedDate;
         this.author = author;
         this.category = category;
+        this.publisher = publisher;
     }
 
     public void addThumbnailImage(BookThumbnail thumbnail) {
