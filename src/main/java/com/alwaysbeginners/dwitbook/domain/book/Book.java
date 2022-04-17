@@ -81,4 +81,16 @@ public class Book extends BaseEntity {
     public void addThumbnailImage(BookThumbnail thumbnail) {
         this.thumbnailImages.add(thumbnail);
     }
+
+    public void addReview(Review review) {
+        this.reviews.add(review);
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
+    }
 }
