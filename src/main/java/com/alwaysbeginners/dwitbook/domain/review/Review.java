@@ -45,10 +45,13 @@ public class Review extends BaseEntity {
     private String comment;
 
     @Builder
-    public Review(Book book, Account account, Float rating) {
+    public Review(Book book, Account account, Float rating, String favoriteSentence,
+        String comment) {
         this.book = book;
         this.account = account;
         this.rating = rating;
+        this.favoriteSentence=favoriteSentence;
+        this.comment=comment;
     }
 
 }
